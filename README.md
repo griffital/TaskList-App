@@ -1,2 +1,6 @@
-# Task-Lister App
-Modern browser based task-lister app that stores user input in local storage.
+# tasklisterapp
+TaskListerApp is a beautiful, modern browser-based task listing app
+
+
+
+that stores user input in local storage.
