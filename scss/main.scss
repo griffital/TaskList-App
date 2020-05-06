@@ -1,2 +1,16 @@
 // variables
-$primary-color: #e0e0e0;
+$primary-color: #ff1744;
+$secondary-color: #ef9a9a;
+$lgrey-color: #fafafa;
+
+
+
+
+
+body {
+  background-color: $lgrey-color;
+}
+
+.container {
+  margin-top: 50px;
+}
