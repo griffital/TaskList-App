@@ -54,7 +54,7 @@ function getTasks() {
 
 // Add task function
 function addTask(e) {
-  
+
   if(taskInput.value === '') {
     return;
   } 
