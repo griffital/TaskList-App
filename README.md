@@ -1,2 +1,2 @@
-# Task List App
-Modern browser-based task list app that stores user input in local storage. The app is responsive and will be published online.
+# Task-Lister App
+Modern browser based task-lister app that stores user input in local storage.
