@@ -1,2 +1,2 @@
 # TaskList-App
-Browser based task list app
+Modern browser based task list app that stores user data in local storage.
