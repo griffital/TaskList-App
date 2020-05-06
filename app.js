@@ -23,6 +23,7 @@ function loadEventListeners() {
   filter.addEventListener('keyup', filterTasks);
 }
 
+
 // Get tasks from LS
 function getTasks() {
   let tasks;
@@ -50,9 +51,13 @@ function getTasks() {
   });
 }
 
+
 // Add task function
 function addTask(e) {
-
+  
+  if(taskInput.value === '') {
+    return;
+  } 
   // Create li element
   const li = document.createElement('li');
   // Adding class name
@@ -77,7 +82,8 @@ function addTask(e) {
   e.preventDefault();
 }
 
-// Store Task
+
+// Store Task in LS
 function storeTaskInLocalStorage(task) {
   let tasks;
   if(localStorage.getItem('tasks') === null) {
@@ -90,18 +96,16 @@ function storeTaskInLocalStorage(task) {
 }
 
 
-
 // Remove task
 function removeTask(e) {
   if(e.target.parentElement.classList.contains('delete-item')) {
-    if(confirm('Are you sure?')) {
-      e.target.parentElement.parentElement.remove();
 
+      e.target.parentElement.parentElement.remove();
       // Remove from LS
       removeTaskFromLocalStorage(e.target.parentElement.parentElement);
-    } 
+    }
   }
-}
+
 
 // Remove from LS
 function removeTaskFromLocalStorage(taskItem) {
