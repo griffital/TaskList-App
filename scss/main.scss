@@ -5,6 +5,10 @@ $lgrey-color: #fafafa;
 $dgrey-color: #e0e0e0;
 
 
+body {
+  overflow-y: overlay;
+}
+
 .header {
   display: flex;
 
@@ -14,26 +18,31 @@ $dgrey-color: #e0e0e0;
   }
 }
 
-
-// gradient shards at the bottom
-.gradient {
-  background-color: $primary-color;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  clip-path: polygon(0 95.5%, 0% 100%, 100% 100%);
+.container {
+  overflow: hidden;
+  
 }
 
-.gradient2 {
-  background-image: linear-gradient(to bottom, $lgrey-color, $dgrey-color);
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
-}
+
+// // gradient shards at the bottom
+// .gradient {
+//   background-color: $primary-color;
+//   height: 100vh;
+//   width: 100%;
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1;
+//   clip-path: polygon(0 95.5%, 0% 100%, 100% 100%);
+// }
+
+// .gradient2 {
+//   background-image: linear-gradient(to bottom, $lgrey-color, $dgrey-color);
+//   height: 100vh;
+//   width: 100%;
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -2;
+//   clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+// }
