@@ -1,4 +1,7 @@
-// UI variables
+/* ----------------------------------
+VARIABLES
+---------------------------------- */
+
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
@@ -6,11 +9,13 @@ const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
 
-// Load all event listeners
+/* ----------------------------------
+LOAD EVENT LISTENERS
+---------------------------------- */
+
 loadEventListeners();
 
 function loadEventListeners() {
-
   // DOM load event
   document.addEventListener('DOMContentLoaded', getTasks);
   // Add task event
@@ -24,8 +29,11 @@ function loadEventListeners() {
 }
 
 
-// Get tasks from LS
-function getTasks() {
+/* ----------------------------------
+GET TASKS FROM LOCAL STORAGE
+---------------------------------- */
+
+function getTasks() { 
   let tasks;
   if(localStorage.getItem('tasks') === null) {
     tasks = [];
@@ -52,35 +60,53 @@ function getTasks() {
 }
 
 
-// Add task function
+
+
+
+
+
+/* ----------------------------------
+TASK INPUT FUNCTIONALITY
+---------------------------------- */
+
 function addTask(e) {
 
+  // stops you clicking 'add task' and an empty task box appearing
   if(taskInput.value === '') {
     return;
   } 
-  // Create li element
-  const li = document.createElement('li');
-  // Adding class name
-  li.className = 'collection-item';
-  // Create text node & append to li
-  li.appendChild(document.createTextNode(taskInput.value));
+  
+  const li = document.createElement('li'); // Create li element
+  li.className = 'collection-item'; // Adding class name
+  li.appendChild(document.createTextNode(taskInput.value)); // Create text node (what the task is going to say) & append to li (put li into the ul)
+
   // Create new link element
   const link = document.createElement('a');
   link.className = 'delete-item secondary-content';
   link.innerHTML = '<i class="fa fa-remove"></i>';
   li.appendChild(link);
 
-  // Append li to ul
+  // Add li element to ul list
   taskList.appendChild(li);
 
-  // Store in local storage
+  // Stored the user input into local storage
   storeTaskInLocalStorage(taskInput.value);
 
   // Clear input field
   taskInput.value = '';
 
-  e.preventDefault();
+  e.preventDefault(); // prevents default behaviour, in this case, the form submitting
 }
+
+
+
+
+
+
+
+
+
+/* -------------------- */
 
 
 // Store Task in LS
@@ -96,6 +122,9 @@ function storeTaskInLocalStorage(task) {
 }
 
 
+/* -------------------- */
+
+
 // Remove task
 function removeTask(e) {
   if(e.target.parentElement.classList.contains('delete-item')) {
@@ -105,6 +134,9 @@ function removeTask(e) {
       removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
   }
+
+
+/* -------------------- */  
 
 
 // Remove from LS
@@ -126,6 +158,9 @@ function removeTaskFromLocalStorage(taskItem) {
 }
 
 
+/* -------------------- */
+
+
 // Clear tasks
 function clearTasks() {
   while(taskList.firstChild) {
@@ -139,6 +174,9 @@ function clearTasks() {
 function clearTasksFromLocalStorage() {
   localStorage.clear();
 }
+
+
+/* -------------------- */
 
 
 // Filter tasks
