@@ -30,7 +30,7 @@ function loadEventListeners() {
 
 
 /* ----------------------------------
-GET TASKS FROM LOCAL STORAGE
+GET TASKS FROM LOCAL STORAGE (if any)
 ---------------------------------- */
 
 function getTasks() { 
@@ -60,13 +60,8 @@ function getTasks() {
 }
 
 
-
-
-
-
-
 /* ----------------------------------
-TASK INPUT FUNCTIONALITY
+ADD A NEW TASK
 ---------------------------------- */
 
 function addTask(e) {
@@ -98,17 +93,6 @@ function addTask(e) {
   e.preventDefault(); // prevents default behaviour, in this case, the form submitting
 }
 
-
-
-
-
-
-
-
-
-/* -------------------- */
-
-
 // Store Task in LS
 function storeTaskInLocalStorage(task) {
   let tasks;
@@ -122,10 +106,10 @@ function storeTaskInLocalStorage(task) {
 }
 
 
-/* -------------------- */
+/* ----------------------------------
+REMOVE TASK
+---------------------------------- */
 
-
-// Remove task
 function removeTask(e) {
   if(e.target.parentElement.classList.contains('delete-item')) {
 
@@ -134,10 +118,6 @@ function removeTask(e) {
       removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
   }
-
-
-/* -------------------- */  
-
 
 // Remove from LS
 function removeTaskFromLocalStorage(taskItem) {
@@ -158,10 +138,10 @@ function removeTaskFromLocalStorage(taskItem) {
 }
 
 
-/* -------------------- */
+/* ----------------------------------
+CLEAR TASKS
+---------------------------------- */
 
-
-// Clear tasks
 function clearTasks() {
   while(taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
@@ -176,10 +156,10 @@ function clearTasksFromLocalStorage() {
 }
 
 
-/* -------------------- */
+/* ----------------------------------
+FILTER TASKS
+---------------------------------- */
 
-
-// Filter tasks
 function filterTasks(e) {
   const text = e.target.value.toLowerCase();
 
